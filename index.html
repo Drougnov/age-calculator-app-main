@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+        <title>Age calculator app | Frontend Mentor</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <form action="#">
+            <div class="input-field">
+                <lable>Day</lable>
+                <input type="number" placeholder="DD" class="day input" />
+                <span class="empty">empty day</span>
+                <span class="invalid">Must be a valid day</span>
+            </div>
+            <div class="input-field">
+                <lable>Month</lable>
+                <input type="number" placeholder="MM" class="month input" />
+                <span class="empty">empty month</span>
+                <span class="invalid">Must be a valid month</span>
+            </div>
+            <div class="input-field">
+                <lable>Year</lable>
+                <input type="number" placeholder="YYYY" class="year input" />
+                <span class="empty">empty year</span>
+                <span class="invalid">Must be in the past</span>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+        <section>
+            <h1 class="age">
+                <span class="age__year">- -</span> years
+                <br />
+                <span class="age__month">- -</span> months
+                <br />
+                <span class="age__day">- -</span> days
+            </h1>
+        </section>
+        <div class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                rel="noopener"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Rocky</a>.
+        </div>
+    </body>
+</html>
