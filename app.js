@@ -38,16 +38,23 @@ const isMonthValid = (month) => {
 };
 
 const isYearValid = (year) => {
+    const invalidYearMsg = document.querySelector(".invalid-year");
+    if (year <= 1970) {
+        invalidYearMsg.textContent = "Year Must be greater than 1970";
+    } else {
+        invalidYearMsg.textContent = "Must be in the past";
+    }
+
     const currentYear = new Date().getFullYear();
-    return Number.isInteger(year) && year >= 1 && year <= currentYear; //year >= 1971 is the best practice
+    return Number.isInteger(year) && year >= 1971 && year <= currentYear; //1970 = unix ephoc
 };
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const dayInput = document.querySelector(".day");
-    const monthInput = document.querySelector(".month");
-    const yearInput = document.querySelector(".year");
+    const dayInput = document.querySelector(".input__day");
+    const monthInput = document.querySelector(".input__month");
+    const yearInput = document.querySelector(".input__year");
 
     const isDayInputValid = validateInput(dayInput, (value) =>
         isDayValid(
@@ -75,8 +82,36 @@ form.addEventListener("submit", (e) => {
         const ageMonth = ageDate.getUTCMonth();
         const ageDay = ageDate.getUTCDate() - 1;
 
-        document.querySelector(".age__year").textContent = ageYear;
-        document.querySelector(".age__month").textContent = ageMonth;
-        document.querySelector(".age__day").textContent = ageDay;
+        const dayElement = document.querySelector(".age__day");
+        const monthElement = document.querySelector(".age__month");
+        const yearElement = document.querySelector(".age__year");
+
+        const targetDay = ageDay;
+        const targetMonth = ageMonth;
+        const targetYear = ageYear;
+
+        animateCounter(dayElement, targetDay);
+        animateCounter(monthElement, targetMonth);
+        animateCounter(yearElement, targetYear);
+
+        function animateCounter(element, targetValue) {
+            const duration = 5000;
+            const interval = 25;
+            const increment = Math.ceil(targetValue / (duration / interval));
+            let currentValue = 0;
+            let intervalId;
+
+            function updateValue() {
+                element.textContent = currentValue;
+
+                if (currentValue >= targetValue) {
+                    clearInterval(intervalId);
+                } else {
+                    currentValue += increment;
+                }
+            }
+
+            intervalId = setInterval(updateValue, interval);
+        }
     }
 });
