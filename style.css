@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background: hsl(0, 0%, 94%);
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    background: hsl(0, 0%, 100%);
+    padding: 1.5rem;
+    margin: 1rem;
+    -webkit-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+    -moz-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+    -ms-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+    -o-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+}
+main form {
+    position: relative;
+}
+form .input-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 1rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid hsl(0, 0%, 86%);
+}
+.input-field {
+    display: grid;
+}
+.input-field > * {
+    width: 100%;
+}
+.input-field .label {
+    color: hsl(0, 1%, 44%);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.input-field .input {
+    height: 3rem;
+    color: hsl(0, 0%, 8%);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid hsl(0, 0%, 86%);
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    border-radius: 0.5rem;
+}
+.input::placeholder {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+.empty,
+.invalid {
+    color: hsl(0, 100%, 67%);
+    font-style: italic;
+    display: none;
+}
+.input-field.empty-value .empty {
+    display: initial;
+}
+.input-field.invalid-value .invalid {
+    display: initial;
+}
+form .submit-btn {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: 50px;
+    height: 50px;
+    background: hsl(259, 100%, 65%);
+    display: grid;
+    place-items: center;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.submit-btn img {
+    width: 20px;
+    height: 20px;
+}
+main .age-container {
+    padding: 3rem 0 1rem 0;
+}
+.age-container .age {
+    font-size: 3rem;
+}
+footer {
+    font-style: italic;
+}
+footer a {
+    color: hsl(259, 100%, 65%);
+}
+footer a:hover {
+    text-decoration: none;
+}
