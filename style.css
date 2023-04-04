@@ -136,23 +136,23 @@ form .submit-btn {
     -ms-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
-    animation: spin 3s linear infinite;
     -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
 }
 @keyframes spin {
     0% {
-        transform: rotate(0);
         -webkit-transform: rotate(0);
         -moz-transform: rotate(0);
         -ms-transform: rotate(0);
         -o-transform: rotate(0);
+        transform: rotate(0);
     }
     100% {
-        transform: rotate(360deg);
         -webkit-transform: rotate(360deg);
         -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg);
         -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 .submit-btn:hover {
