@@ -4,10 +4,23 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root {
+    --primary-clr: hsl(0, 1%, 44%);
+    --header-clr: hsl(0, 0%, 8%);
+    --body-bg: hsl(0, 0%, 94%);
+    --main-bg: hsl(0, 0%, 100%);
+    --border-bg: hsl(0, 0%, 86%);
+    --cta: hsl(259, 100%, 65%);
+    --error: hsl(0, 100%, 67%);
+
+    --fs-xs: 12px;
+    --fs-s: 18px;
+    --fs-l: 2.5rem;
+}
 body {
     min-height: 100vh;
-    background: hsl(0, 0%, 94%);
-    font-size: 12px;
+    background: var(--body-bg);
+    font-size: var(--fs-xs);
     font-family: "Poppins", sans-serif;
     font-style: italic;
     display: flex;
@@ -16,7 +29,7 @@ body {
     align-items: center;
 }
 main {
-    background: hsl(0, 0%, 100%);
+    background: var(--main-bg);
     padding: 1.5rem;
     margin: 1rem;
     -webkit-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
@@ -35,7 +48,7 @@ form .input-container {
     align-items: start;
     gap: 1rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid hsl(0, 0%, 86%);
+    border-bottom: 1px solid var(--border-bg);
 }
 .input-field {
     display: grid;
@@ -44,7 +57,7 @@ form .input-container {
     width: 100%;
 }
 .input-field .label {
-    color: hsl(0, 1%, 44%);
+    color: var(--primary-clr);
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -52,18 +65,18 @@ form .input-container {
 }
 .input-field.empty-value .label,
 .input-field.invalid-value .label {
-    color: hsl(0, 100%, 67%);
+    color: var(--error);
 }
 .input-field .input {
     height: 3rem;
-    color: hsl(0, 0%, 8%);
-    font-size: 18px;
+    color: var(--header-clr);
+    font-size: var(--fs-s);
     font-weight: 700;
     font-family: "Poppins", sans-serif;
     padding-left: 1rem;
     margin: 0.5rem 0;
     outline: none;
-    border: 1px solid hsl(0, 0%, 86%);
+    border: 1px solid var(--border-bg);
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
@@ -76,21 +89,20 @@ form .input-container {
     transition: all 0.2s linear;
 }
 .input::placeholder {
-    font-size: 18px;
+    font-size: var(--fs-s);
     font-weight: 700;
     font-family: "Poppins", sans-serif;
 }
-.input-field .input:focus,
-.input-field .input:hover {
-    border: 1px solid hsl(259, 100%, 65%);
+.input-field .input:focus {
+    border: 1px solid var(--cta);
 }
 .input-field.empty-value .input,
 .input-field.invalid-value .input {
-    border: 1px solid hsl(0, 100%, 67%);
+    border: 1px solid var(--error);
 }
 .empty,
 .invalid {
-    color: hsl(0, 100%, 67%);
+    color: var(--error);
     display: none;
 }
 .input-field.empty-value .empty {
@@ -107,7 +119,7 @@ form .submit-btn {
     margin-inline: auto;
     width: 50px;
     height: 50px;
-    background: hsl(259, 100%, 65%);
+    background: var(--cta);
     display: grid;
     place-items: center;
     outline: none;
@@ -124,9 +136,27 @@ form .submit-btn {
     -ms-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
+    animation: spin 3s linear infinite;
+    -webkit-animation: spin 3s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
 }
 .submit-btn:hover {
-    background: hsl(0, 0%, 8%);
+    background: var(--header-clr);
 }
 .submit-btn img {
     width: 20px;
@@ -136,26 +166,30 @@ main .age-container {
     padding: 3rem 0 1rem 0;
 }
 .age-container .age {
-    font-size: 2.5rem;
+    color: var(--header-clr);
+    font-size: var(--fs-l);
     font-weight: 800;
     line-height: 1.2;
 }
-.age span {
-    color: hsl(259, 100%, 65%);
-}
+.age span,
 footer a {
-    color: hsl(259, 100%, 65%);
+    color: var(--cta);
 }
+
 footer a:hover {
     text-decoration: none;
 }
 
 @media (min-width: 350px) {
-    .age-container .age {
-        font-size: 3rem;
+    :root {
+        --fs-l: 3rem;
     }
 }
 @media (min-width: 750px) {
+    :root {
+        --fs-s: 20px;
+        --fs-l: 4.75rem;
+    }
     main {
         width: 650px;
         padding: 3rem;
@@ -166,23 +200,16 @@ footer a:hover {
     }
     .input-field .input {
         height: 4rem;
-        font-size: 20px;
-    }
-    .input::placeholder {
-        font-size: 20px;
     }
     form .submit-btn {
-        bottom: -40px;
         left: auto;
         margin-left: auto;
+        bottom: -40px;
         width: 80px;
         height: 80px;
     }
     .submit-btn img {
         width: 40px;
         height: 40px;
-    }
-    .age-container .age {
-        font-size: 4.75rem;
     }
 }
