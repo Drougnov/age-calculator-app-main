@@ -9,6 +9,7 @@ body {
     background: hsl(0, 0%, 94%);
     font-size: 12px;
     font-family: "Poppins", sans-serif;
+    font-style: italic;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,6 +24,7 @@ main {
     -ms-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
     -o-border-radius: 1.5rem 1.5rem 5rem 1.5rem;
     border-radius: 1.5rem 1.5rem 5rem 1.5rem;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
 }
 main form {
     position: relative;
@@ -32,7 +34,7 @@ form .input-container {
     grid-template-columns: repeat(3, 1fr);
     align-items: start;
     gap: 1rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3rem;
     border-bottom: 1px solid hsl(0, 0%, 86%);
 }
 .input-field {
@@ -44,8 +46,13 @@ form .input-container {
 .input-field .label {
     color: hsl(0, 1%, 44%);
     font-weight: 700;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+.input-field.empty-value .label,
+.input-field.invalid-value .label {
+    color: hsl(0, 100%, 67%);
 }
 .input-field .input {
     height: 3rem;
@@ -55,22 +62,35 @@ form .input-container {
     font-family: "Poppins", sans-serif;
     padding-left: 1rem;
     margin: 0.5rem 0;
+    outline: none;
     border: 1px solid hsl(0, 0%, 86%);
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 0.5rem;
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
     border-radius: 0.5rem;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 }
 .input::placeholder {
     font-size: 18px;
     font-weight: 700;
     font-family: "Poppins", sans-serif;
 }
+.input-field .input:focus,
+.input-field .input:hover {
+    border: 1px solid hsl(259, 100%, 65%);
+}
+.input-field.empty-value .input,
+.input-field.invalid-value .input {
+    border: 1px solid hsl(0, 100%, 67%);
+}
 .empty,
 .invalid {
     color: hsl(0, 100%, 67%);
-    font-style: italic;
     display: none;
 }
 .input-field.empty-value .empty {
@@ -93,11 +113,20 @@ form .submit-btn {
     outline: none;
     border: none;
     padding: 0.5rem;
-    border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.submit-btn:hover {
+    background: hsl(0, 0%, 8%);
 }
 .submit-btn img {
     width: 20px;
@@ -107,14 +136,53 @@ main .age-container {
     padding: 3rem 0 1rem 0;
 }
 .age-container .age {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
 }
-footer {
-    font-style: italic;
+.age span {
+    color: hsl(259, 100%, 65%);
 }
 footer a {
     color: hsl(259, 100%, 65%);
 }
 footer a:hover {
     text-decoration: none;
+}
+
+@media (min-width: 350px) {
+    .age-container .age {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 750px) {
+    main {
+        width: 650px;
+        padding: 3rem;
+        margin: 2rem;
+    }
+    form .input-container {
+        grid-template-columns: repeat(3, minmax(auto, 125px));
+    }
+    .input-field .input {
+        height: 4rem;
+        font-size: 20px;
+    }
+    .input::placeholder {
+        font-size: 20px;
+    }
+    form .submit-btn {
+        bottom: -40px;
+        left: auto;
+        margin-left: auto;
+        width: 80px;
+        height: 80px;
+    }
+    .submit-btn img {
+        width: 40px;
+        height: 40px;
+    }
+    .age-container .age {
+        font-size: 4.75rem;
+    }
 }
