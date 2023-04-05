@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [yet to add](https://your-solution-url.com)
-- Live Site URL: [yet to add](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/age-calculator-app-solution-responsive-mobile-first-1CCph5PuP6](https://www.frontendmentor.io/solutions/age-calculator-app-solution-responsive-mobile-first-1CCph5PuP6)
+- Live Site URL: [https://drougnov.github.io/age-calculator-app-main](https://drougnov.github.io/age-calculator-app-main)
 
 ## My process
 
